@@ -16,6 +16,8 @@ public class Errors {
     public static final String INVALID_VOTE_FORMAT = "Invalid vote: vote should be either 1, 0, or -1.";
     public static final String INVALID_RATE_RANGE = "Rate value must be an integer between 1 and 10";
     public static final String INVALID_CREDIT_RANGE = "Credit value must be a positive float";
+    public static final String INVALID_SCORE = "Score value must be between 0 and 10";
+    public static final String INVALID_QUANTITY = "Quantity value must not be lower than 0";
     public static final String INVALID_PRICE_RANGE = "Invalid Price Range.";
     public static final String INSUFFICIENT_CREDIT = "Credit is insufficient.";
     public static final String NOT_EXISTENT_COMMODITY = "Commodity does not exist.";

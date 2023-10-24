@@ -1,5 +1,6 @@
 package model;
 
+import exceptions.InvalidScore;
 import exceptions.NotInStock;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,7 +30,9 @@ public class Commodity {
         this.inStock += amount;
     }
 
-    public void addRate(String username, int score) {
+    public void addRate(String username, int score) throws InvalidScore {
+        if (score < 0 || score > 10)
+            throw new InvalidScore();
         userRate.put(username, score);
         this.calcRating();
     }

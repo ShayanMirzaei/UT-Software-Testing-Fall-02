@@ -1,5 +1,6 @@
 package controllers;
 
+import exceptions.InvalidScore;
 import service.Baloot;
 import model.Comment;
 import model.Commodity;
@@ -40,7 +41,7 @@ public class CommoditiesController {
             return new ResponseEntity<>("rate added successfully!", HttpStatus.OK);
         } catch (NotExistentCommodity e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException | InvalidScore e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }

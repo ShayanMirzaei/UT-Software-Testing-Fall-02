@@ -3,6 +3,7 @@ package model;
 import exceptions.CommodityIsNotInBuyList;
 import exceptions.InsufficientCredit;
 import exceptions.InvalidCreditRange;
+import exceptions.InvalidQuantity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -56,7 +57,9 @@ public class User {
             this.buyList.put(id, 1);
     }
 
-    public void addPurchasedItem(String id, int quantity) {
+    public void addPurchasedItem(String id, int quantity) throws InvalidQuantity {
+        if (quantity < 0)
+            throw new InvalidQuantity();
         if (this.purchasedList.containsKey(id)) {
             int existingQuantity = this.purchasedList.get(id);
             this.purchasedList.put(id, existingQuantity + quantity);
