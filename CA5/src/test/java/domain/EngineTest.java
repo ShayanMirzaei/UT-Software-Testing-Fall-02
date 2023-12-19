@@ -56,13 +56,15 @@ public class EngineTest {
         engine.addOrderAndGetFraudulentQuantity(Helper.CreateOrder(2, 1, 2, 9));
         engine.addOrderAndGetFraudulentQuantity(Helper.CreateOrder(3, 1, 3, 8));
         engine.addOrderAndGetFraudulentQuantity(Helper.CreateOrder(4, 1, 3, 6));
-        engine.addOrderAndGetFraudulentQuantity(Helper.CreateOrder(5, 1, 3, 4));
+        var result = engine.addOrderAndGetFraudulentQuantity(Helper.CreateOrder(5, 1, 3, 4));
+        assertEquals(0, result);
     }
 
     @Test
     public void TestGetQuantityPatternByPricePaths2() {
         engine.addOrderAndGetFraudulentQuantity(Helper.CreateOrder(1, 1, 1, 100));
         engine.addOrderAndGetFraudulentQuantity(Helper.CreateOrder(3, 1, 3, 8));
-        engine.addOrderAndGetFraudulentQuantity(Helper.CreateOrder(5, 1, 3, 5));
+        var result = engine.addOrderAndGetFraudulentQuantity(Helper.CreateOrder(5, 1, 3, 5));
+        assertEquals(-92, result);
     }
 }
